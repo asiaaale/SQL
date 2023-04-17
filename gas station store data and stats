@@ -1,0 +1,34 @@
+--Create a gas station store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "beef jerky", "snacks", 8.99, 99);
+INSERT INTO store VALUES (2, "banana", "health", 0.99, 45);
+INSERT INTO store VALUES (3, "qtips", "hygiene", 2.99, 55);
+INSERT INTO store VALUES (4, "gatorade", "drinks", 0.99, 85);
+INSERT INTO store VALUES (5, "trulys", "drinks", 14.99, 65);
+INSERT INTO store VALUES (6, "salsa", "snacks", 3.25, 43);
+INSERT INTO store VALUES (7, "hummus", "snacks", 2.99, 35);
+INSERT INTO store VALUES (8, "tums", "hygiene", 2.99, 50);
+INSERT INTO store VALUES (9, "pizza", "frozen" 4.99, 75);
+INSERT INTO store VALUES (10, "hot pocket", "frozen", 0.99, 95);
+INSERT INTO store VALUES (11, "smoothie", "drinks", 2.99, 73);
+INSERT INTO store VALUES (12, "granola", "health", 1.99, 70);
+INSERT INTO store VALUES (13, "condoms", "health", 8.99,60);
+INSERT INTO store VALUES (14, "cheese stick", "snacks", 2.99, 26);
+INSERT INTO store VALUES (15, "popcorn", "snacks", 1.99, 47);
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items in the health section? 
+SELECT AVG(price) "avg health item price"
+FROM store
+where section='health'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM store
+order by popularity desc
+limit 5; 
