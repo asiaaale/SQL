@@ -142,3 +142,23 @@ ON feb.orderid=cust.order_id
 WHERE length(orderid) = 6
 AND orderid <> 'ORDERID'
 
+
+/*Which product brought in the most revenue in January and how much revenue
+ did it bring in total?*/
+ 
+SELECT product, 
+SUM(quantity*price)
+FROM BIT_DB.JanSales 
+GROUP BY product
+ORDER BY SUM(quantity*price) DESC 
+LIMIT 1;
+
+/*visual explanation of SUM(quantity*price) and SUM(quantity)*price*/
+
+SELECT SUM(quantity),
+price,
+SUM(quantity)*price as revenue,
+SUM(quantity*price) as revenue2,
+product 
+FROM BIT_DB.JanSales
+GROUP BY product;
